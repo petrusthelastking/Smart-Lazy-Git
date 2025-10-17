@@ -1,0 +1,15 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '0 1,9 * * *'  # 1:00 UTC = 8:00 & 16:00 Jakarta (UTC+7)
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Make empty commit
+        run: |
+          git commit --allow-empty -m "Auto commit at $(TZ=Asia/Jakarta date '+%Y-%m-%d %H:%M:%S')"
+          git push
