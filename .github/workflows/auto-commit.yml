@@ -3,7 +3,7 @@ name: Auto Commit
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1,9 * * *'  # 1:00 UTC = 8:00 & 16:00 Jakarta (UTC+7)
+    - cron: '0 0,5,9 * * *'  
 
 jobs:
   commit:
